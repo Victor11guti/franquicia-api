@@ -13,14 +13,17 @@ public class WebCorsConfig {
 
     @Bean
     public CorsWebFilter corsFilter() {
-    	  CorsConfiguration config = new CorsConfiguration();
-          config.setAllowCredentials(true);
-          config.setAllowedOrigins(List.of("https://franquicia-api-production.up.railway.app"));
-          config.addAllowedHeader("*");
-          config.addAllowedMethod("*");
+    	   CorsConfiguration config = new CorsConfiguration();
+           config.setAllowCredentials(true);
+           config.setAllowedOrigins(List.of(
+                   "https://franquicia-api-production.up.railway.app",
+                   "https://franquicia-api-production.up.railway.app/swagger-ui.html"
+           ));
+           config.addAllowedHeader("*");
+           config.addAllowedMethod("*");
 
-          UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-          source.registerCorsConfiguration("/**", config);
-          return new CorsWebFilter(source);
+           UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+           source.registerCorsConfiguration("/**", config);
+           return new CorsWebFilter(source);
     }
 }
