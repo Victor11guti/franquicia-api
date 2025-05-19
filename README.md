@@ -95,6 +95,9 @@ Frameworks:
 
 ---
 
+## Link despliegue en Aws con ec2 
+- http://184.72.195.35:8080/webjars/swagger-ui/index.html#/
+
 ##  Autor
 
 Desarrollado como parte de una prueba técnica.
