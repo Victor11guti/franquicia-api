@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+
+  mongo:
+    image: mongo:6
+    container_name: mongo_franquicia
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build: .
+    container_name: franquicia_api
+    ports:
+      - "8080:8080"
+    environment:
+      
+      - MONGO_URI=mongodb+srv://franquicia_db:victor1974@franquicia-project.feiat59.mongodb.net/franquicia_db?retryWrites=true&w=majority&appName=franquicia-project
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
